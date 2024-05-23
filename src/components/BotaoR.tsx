@@ -3,8 +3,24 @@ import React, { Component } from "react";
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+const getData = async (key: string) => {
+    const resultado = await AsyncStorage.getItem(key);
+    return resultado ? JSON.parse(resultado) : null;
+};
+
 const storeData = async (key: string, dados: Tipo) => {
-      await AsyncStorage.setItem(key, JSON.stringify(dados));
+
+    const dadosExistem = await getData(key)
+
+    if(dadosExistem){
+        dadosExistem.push(dados);
+        await AsyncStorage.setItem(key, JSON.stringify(dadosExistem));
+    }else{
+        await AsyncStorage.setItem(key, JSON.stringify(dados));
+    }
+    
+    const a = await getData('dados')
+    console.log(a)
 };
 
 async function dadosPreenchidos (dados: Tipo, navigation: any) {
@@ -17,6 +33,7 @@ async function dadosPreenchidos (dados: Tipo, navigation: any) {
 };
 
 interface Tipo{
+    push(arg0: any): unknown;
     nome: string,
     email: string,
     senha: string,

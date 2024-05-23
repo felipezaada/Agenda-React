@@ -13,8 +13,9 @@ async function dadosPreenchidos (dados : Tipo, navigation : any){
         console.warn('Há dados faltantes!');
     }else{
         const dadosRegistro = await getData('dados');
-        const {email, senha} = dadosRegistro;
-        if(email === dados.email && senha === dados.senha){
+        const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
+        
+        if(existe){
             navigation.navigate('Home');
         }else{
             console.warn('Email ou senha incorretos!');

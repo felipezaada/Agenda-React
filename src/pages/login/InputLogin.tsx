@@ -28,6 +28,7 @@ const InputLogin = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Email"
+                placeholderTextColor={'#a9a9a9'}
                 value={email}
                 onChangeText={setEmail}
                 
@@ -36,6 +37,7 @@ const InputLogin = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Senha"
+                placeholderTextColor={'#a9a9a9'}
                 secureTextEntry={true}
                 value={senha}
                 onChangeText={setSenha}
@@ -47,7 +49,7 @@ const InputLogin = () => {
         </View>
 
         <View style={styles.Container3}>
-            <BotaoPequeno texto="Não possui uma conta?" texto2={"Sign-Up"}/>
+            <BotaoPequeno texto="Não possui uma conta? " texto2={"Sign-Up"}/>
         </View>
 
         </>
@@ -66,7 +68,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         borderWidth: 2,
         borderColor: '#222',
-        fontSize: 20
+        fontSize: 20,
+        color: '#000000'
     },
     Texto: {
         right: 95,
@@ -99,12 +102,14 @@ const styles = StyleSheet.create({
 
     Container2: {
         bottom: 40,
-        alignContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     Container3: {
         bottom: 25,
-        alignContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 
 });

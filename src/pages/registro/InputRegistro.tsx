@@ -31,6 +31,7 @@ const InputRegistro = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Nome"
+                placeholderTextColor={'#a9a9a9'}
                 value={nome}
                 onChangeText={setNome}
             />
@@ -39,6 +40,7 @@ const InputRegistro = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Email"
+                placeholderTextColor={'#a9a9a9'}
                 value={email}
                 onChangeText={setEmail}
             />
@@ -47,6 +49,7 @@ const InputRegistro = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Senha"
+                placeholderTextColor={'#a9a9a9'}
                 value={senha}
                 onChangeText={setSenha}
             />
@@ -55,6 +58,7 @@ const InputRegistro = () => {
             <TextInput
                 style={styles.Box}
                 placeholder="Confirmar senha"
+                placeholderTextColor={'#a9a9a9'}
                 value={senha2}
                 onChangeText={setSenha2}
             />
@@ -87,7 +91,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#222',
         fontSize: 20,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        color: '#000000'
     },
     Texto: {
         fontSize: 20,
@@ -106,11 +111,15 @@ const styles = StyleSheet.create({
     },
 
     Container2: {
+        alignItems: 'center',
+        justifyContent: 'center',
         bottom: 40
     },
 
     Container3: {
-        bottom: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: 30
     },
 
 });
