@@ -5,12 +5,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const getData = async (key: string) => {
     const resultado = await AsyncStorage.getItem(key);
-    return resultado ? JSON.parse(resultado) : null;
+    return resultado ? JSON.parse(resultado) : [];
 };
 
 const storeData = async (key: string, dados: Tipo) => {
 
-    const dadosExistem = await getData(key)
+    let dadosExistem = await getData(key);
 
     if(dadosExistem){
         dadosExistem.push(dados);
@@ -33,7 +33,6 @@ async function dadosPreenchidos (dados: Tipo, navigation: any) {
 };
 
 interface Tipo{
-    push(arg0: any): unknown;
     nome: string,
     email: string,
     senha: string,
