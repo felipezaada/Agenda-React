@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import BotaoR from "../../components/BotaoR";
 import BotaoPequeno from "../../components/BotaoPequeno";
 import Mensagem from "../../components/Mensagem";
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const InputRegistro = () => {
 
@@ -21,9 +24,12 @@ const InputRegistro = () => {
     return (
         <>
         
-        <View style={styles.Container}>
+        <ScrollView
+            style={styles.Container}
+            persistentScrollbar={false}
+        >
 
-        <View style={styles.Container1}>
+        <View style={styles.ContainerMensagem}>
             <Mensagem></Mensagem>
         </View>
 
@@ -63,16 +69,16 @@ const InputRegistro = () => {
                 onChangeText={setSenha2}
             />
             
-        </View>
-        
-        <View style={styles.Container2}> 
+
+        <View style={{ height: screenWidth * 0.08 }} />
+
+        <View style={styles.ContainerBotao}> 
             <BotaoR titulo={"Registrar"} dados={dados}></BotaoR>
+            <BotaoPequeno texto="Já possui uma conta?" texto2="Sign-in"/>
         </View>
 
-        <View style={styles.Container3}>
-            <BotaoPequeno texto="   Já possui uma conta?" texto2="Sign-in"/>
-        </View>
-
+        </ScrollView>
+        
         </>
 
     );
@@ -82,44 +88,38 @@ export default InputRegistro;
 
 const styles = StyleSheet.create({
     Box: {
-        bottom: 35,
-        width: 350,
-        height: 52,
+        bottom: screenWidth * 0.07,
+        width: screenWidth * 0.85,
+        height: screenHeight * 0.067,
         margin: 7,
         padding: 15,
         borderRadius: 15,
         borderWidth: 2,
         borderColor: '#222',
-        fontSize: 20,
+        fontSize: screenWidth * 0.042,
         alignSelf: 'center',
         color: '#000000'
     },
     Texto: {
-        fontSize: 20,
-        bottom: 30,
-        left: 30,
+        fontSize: screenWidth * 0.05,
+        bottom: screenWidth * 0.06,
+        right: screenHeight * -0.041,
         color: '#000000',
     },
 
     Container: {
-        bottom: 20,
+        flex: 1,
+        bottom: screenWidth * 0.04,
     },
 
-    Container1: {
+    ContainerMensagem: {
         alignItems: 'center',
         justifyContent: 'center'
     },
 
-    Container2: {
+    ContainerBotao: {
         alignItems: 'center',
         justifyContent: 'center',
-        bottom: 40
-    },
-
-    Container3: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        bottom: 30
     },
 
 });

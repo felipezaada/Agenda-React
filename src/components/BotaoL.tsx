@@ -1,7 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import React, { Component } from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
 
 const getData = async (key: string) => {
     const memoriaDados = await AsyncStorage.getItem(key);
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
-        bottom: -55
     }
 
 });

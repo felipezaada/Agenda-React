@@ -1,29 +1,33 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { Component } from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
 
-function executar (navigation : any, texto2 : string){
-    if(texto2 === "Sign-in"){
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+
+function executar (navigation: any, texto2: string){
+    if (texto2 === "Sign-in") {
         navigation.navigate('Login');
-    }else{
-        navigation.navigate('Registro'); 
+    } else {
+        navigation.navigate('Registro');
     }
-};
+}
 
-const BotaoPequeno = (props: {texto: string, texto2: string}) => {
-
+const BotaoPequeno = (props: { texto: string, texto2: string }) => {
     const navigation = useNavigation();
     const valorProp = props.texto2;
-    
+
     return (
         <View style={styles.Container}>
-        <Text style={styles.Texto}>{props.texto}</Text>
-        <TouchableOpacity
-            style={styles.Botao}
-            onPress={() => executar(navigation, valorProp)}
-         >
-        <Text style={styles.Texto2}>{props.texto2}</Text>
-        </TouchableOpacity>
+            <View style={styles.Row}>
+                <Text style={styles.Texto}>{props.texto}</Text>
+                <TouchableOpacity
+                    style={styles.Botao}
+                    onPress={() => executar(navigation, valorProp)}
+                >
+                    <Text style={styles.Texto2}>{props.texto2}</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 };
@@ -31,29 +35,25 @@ const BotaoPequeno = (props: {texto: string, texto2: string}) => {
 export default BotaoPequeno;
 
 const styles = StyleSheet.create({
-    
+    Container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    Row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     Botao: {
         borderColor: 'transparent',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
     },
-
     Texto: {
-        right: 30,
-        fontSize: 18,
-        textAlign: 'center',
-        color: "#000000"
+        fontSize: 0.04 * screenWidth,
+        color: "#000000",
     },
-
     Texto2: {
-        left: 100,
-        bottom: 24.5,
-        fontSize: 18,
-        textAlign: 'center',
-        color: "#f381b2"
+        fontSize: 0.04 * screenWidth,
+        color: "#f381b2",
+        marginLeft: 0.01 * screenWidth,
     },
-
-    Container: {
-        bottom: -45
-    }
-
 });

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import Botao from "../../components/Botao";
+
+const screenWidth = Dimensions.get('window').width;
 
 const Inicio = () => {
 
@@ -16,7 +18,7 @@ export default Inicio;
 const styles = StyleSheet.create({
 
     Container: {
-        bottom: 180,
+        bottom: screenWidth * 0.5,
         padding: 80,
         alignItems: 'center',
         justifyContent: 'center'

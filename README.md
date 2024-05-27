@@ -1,31 +1,52 @@
-# Projeto de Desenvolvimento Mobile - Professor Rodrigo
+# Agenda React
 
-## Descrição
-Este projeto foi criado como parte da aula de Desenvolvimento Mobile ministrada pelo professor Rodrigo. O objetivo principal é fornecer aos alunos uma experiência prática na construção de aplicativos móveis usando tecnologias modernas.
+## Descrição do Projeto
 
-## Estado do Projeto
-Este projeto está em desenvolvimento ativo. Novos recursos estão sendo adicionados e melhorias estão sendo feitas regularmente.
+**Agenda React** é um aplicativo de agenda desenvolvido utilizando **React Native**. Este projeto foi criado como um trabalho para a disciplina de Programação de Dispositivos Mobile, ministrada pelo professor **Rodrigo de Lima**.
 
-## Tecnologias Utilizadas
-- TypeScript (TSX)
-- React Native
+O aplicativo possui um tema inspirado na Hello Kitty e utiliza o **AsyncStorage** como banco de dados para armazenar informações de usuários, incluindo funcionalidades de login e registro.
 
-## Como Rodar o Projeto
-Antes de iniciar o projeto, certifique-se de ter o Node.js e o npm instalados em sua máquina.
+## Status do Projeto
 
-1. **Instalação de Dependências:** No diretório do arquivo, execute o seguinte comando no terminal para instalar as dependências necessárias:
-    ```
-    npm install
-    ```
+O projeto está atualmente em fase de desenvolvimento.
 
-2. **Iniciar o Servidor:** Após a instalação das dependências, inicie o servidor React Native executando o seguinte comando:
-    ```
-    npx react-native start
-    ```
+## Funcionalidades
 
-3. **Rodar o Aplicativo:** Com o servidor em execução, você pode rodar o aplicativo em um emulador ou dispositivo físico.
+- **Login e Registro de Usuários**: Permite aos usuários criar contas e fazer login no aplicativo.
+- **Banco de Dados AsyncStorage**: Utilizado para armazenar dados localmente no dispositivo.
 
-## Contribuição
-Contribuições são bem-vindas! Se você encontrou um problema ou deseja propor uma nova funcionalidade, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+## Pré-requisitos
 
+Antes de começar, certifique-se de ter o **Node.js** e o **npm** instalados em sua máquina. Você pode baixá-los em [Node.js](https://nodejs.org/).
 
+## Instalação
+
+Siga os passos abaixo para configurar e executar o projeto em sua máquina local:
+
+1. **Clone o repositório**
+
+   git clone https://github.com/seu-usuario/agenda-react.git
+
+2. **Navegue até o diretório do projeto**
+
+   cd agenda-react
+
+3. **Instale as dependências**
+
+   npm install
+
+4. **Inicie o projeto**
+
+   npx react-native start
+
+## Contribuições
+
+Fique à vontade para fazer correções e melhorias no projeto. Propostas de pull requests são bem-vindas!
+
+## Contato
+
+Para mais informações, entre em contato com os desenvolvedores do projeto.
+
+***
+
+Nota: Este projeto foi desenvolvido como parte de um trabalho acadêmico e ainda está em fase de desenvolvimento. Feedbacks e contribuições são bem-vindos!

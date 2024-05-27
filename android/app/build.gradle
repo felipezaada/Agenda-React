@@ -83,11 +83,11 @@ android {
         versionName "1.0"
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+        release {
+            storeFile file("android/app/my-keyzinha")
+            storePassword "142802"
+            keyAlias "my-keyzinha"
+            keyPassword "142802"
         }
     }
     buildTypes {
