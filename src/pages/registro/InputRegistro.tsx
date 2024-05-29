@@ -9,10 +9,10 @@ const screenHeight = Dimensions.get('window').height;
 
 const InputRegistro = () => {
 
-    const[nome, setNome] = useState('')
-    const[email, setEmail] = useState('')
-    const[senha, setSenha] = useState('')
-    const[senha2, setSenha2] = useState('')
+    const [nome, setNome] = useState('')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [senha2, setSenha2] = useState('')
 
     const dados = {
         nome,
@@ -22,64 +22,62 @@ const InputRegistro = () => {
     }
 
     return (
-        <>
-        
+
         <ScrollView
-            style={styles.Container}
+            contentContainerStyle={styles.scrollContainer}
             persistentScrollbar={false}
         >
 
-        <View style={styles.ContainerMensagem}>
-            <Mensagem></Mensagem>
-        </View>
+            <View style={styles.container}>
 
-            <Text style={styles.Texto}>Digite seu nome completo</Text>
-            <TextInput
-                style={styles.Box}
-                placeholder="Nome"
-                placeholderTextColor={'#a9a9a9'}
-                value={nome}
-                onChangeText={setNome}
-            />
+                <Mensagem />
 
-            <Text style={styles.Texto}>Digite seu email</Text>
-            <TextInput
-                style={styles.Box}
-                placeholder="Email"
-                placeholderTextColor={'#a9a9a9'}
-                value={email}
-                onChangeText={setEmail}
-            />
+                <Text style={styles.texto}>Digite seu nome completo</Text>
+                <TextInput
+                    style={styles.box}
+                    placeholder="Nome"
+                    placeholderTextColor={'#a9a9a9'}
+                    value={nome}
+                    onChangeText={setNome}
+                />
 
-            <Text style={styles.Texto}>Digite sua senha</Text>
-            <TextInput
-                style={styles.Box}
-                placeholder="Senha"
-                placeholderTextColor={'#a9a9a9'}
-                value={senha}
-                onChangeText={setSenha}
-            />
+                <Text style={styles.texto}>Digite seu email</Text>
+                <TextInput
+                    style={styles.box}
+                    placeholder="Email"
+                    placeholderTextColor={'#a9a9a9'}
+                    value={email}
+                    onChangeText={setEmail}
+                />
 
-            <Text style={styles.Texto}>Confirme sua senha</Text>
-            <TextInput
-                style={styles.Box}
-                placeholder="Confirmar senha"
-                placeholderTextColor={'#a9a9a9'}
-                value={senha2}
-                onChangeText={setSenha2}
-            />
-            
+                <Text style={styles.texto}>Digite sua senha</Text>
+                <TextInput
+                    style={styles.box}
+                    placeholder="Senha"
+                    placeholderTextColor={'#a9a9a9'}
+                    value={senha}
+                    onChangeText={setSenha}
+                />
 
-        <View style={{ height: screenWidth * 0.08 }} />
+                <Text style={styles.texto}>Confirme sua senha</Text>
+                <TextInput
+                    style={styles.box}
+                    placeholder="Confirmar senha"
+                    placeholderTextColor={'#a9a9a9'}
+                    value={senha2}
+                    onChangeText={setSenha2}
+                />
 
-        <View style={styles.ContainerBotao}> 
-            <BotaoR titulo={"Registrar"} dados={dados}></BotaoR>
-            <BotaoPequeno texto="Já possui uma conta?" texto2="Sign-in"/>
-        </View>
+            </View>
+
+            <View style={{ height: screenWidth * 0.08 }} />
+
+            <View style={styles.containerBotao}>
+                <BotaoR titulo={"Registrar"} dados={dados}></BotaoR>
+                <BotaoPequeno texto="Já possui uma conta?" texto2="Sign-in" />
+            </View>
 
         </ScrollView>
-        
-        </>
 
     );
 };
@@ -87,8 +85,13 @@ const InputRegistro = () => {
 export default InputRegistro;
 
 const styles = StyleSheet.create({
-    Box: {
-        bottom: screenWidth * 0.07,
+
+    scrollContainer: {
+        flexGrow: 1
+    },
+
+    box: {
+        bottom: screenHeight * 0.035,
         width: screenWidth * 0.85,
         height: screenHeight * 0.067,
         margin: 7,
@@ -100,26 +103,23 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: '#000000'
     },
-    Texto: {
+
+    texto: {
         fontSize: screenWidth * 0.05,
-        bottom: screenWidth * 0.06,
-        right: screenHeight * -0.041,
-        color: '#000000',
+        bottom: screenHeight * 0.035,
+        right: screenWidth * -0.08,
+        color: '#000000'
     },
 
-    Container: {
+    container: {
         flex: 1,
-        bottom: screenWidth * 0.04,
+        bottom: screenHeight * 0.02,
     },
 
-    ContainerMensagem: {
+    containerBotao: {
+        bottom: screenHeight * 0.03,
         alignItems: 'center',
         justifyContent: 'center'
-    },
-
-    ContainerBotao: {
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 
 });

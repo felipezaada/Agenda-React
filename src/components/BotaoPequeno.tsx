@@ -18,14 +18,14 @@ const BotaoPequeno = (props: { texto: string, texto2: string }) => {
     const valorProp = props.texto2;
 
     return (
-        <View style={styles.Container}>
-            <View style={styles.Row}>
-                <Text style={styles.Texto}>{props.texto}</Text>
+        <View style={styles.container}>
+            <View style={styles.row}>
+                <Text style={styles.texto}>{props.texto}</Text>
                 <TouchableOpacity
-                    style={styles.Botao}
+                    style={styles.botao}
                     onPress={() => executar(navigation, valorProp)}
                 >
-                    <Text style={styles.Texto2}>{props.texto2}</Text>
+                    <Text style={styles.texto2}>{props.texto2}</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -34,26 +34,33 @@ const BotaoPequeno = (props: { texto: string, texto2: string }) => {
 
 export default BotaoPequeno;
 
+
 const styles = StyleSheet.create({
-    Container: {
-        alignItems: 'center',
-        justifyContent: 'center',
+
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    Row: {
-        flexDirection: 'row',
-        alignItems: 'center',
+
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
-    Botao: {
-        borderColor: 'transparent',
-        backgroundColor: 'transparent',
+
+    botao: {
+      borderColor: 'transparent',
+      backgroundColor: 'transparent',
     },
-    Texto: {
-        fontSize: 0.04 * screenWidth,
-        color: "#000000",
+
+    texto: {
+      fontSize: 0.04 * screenWidth,
+      color: "#000000",
     },
-    Texto2: {
-        fontSize: 0.04 * screenWidth,
-        color: "#f381b2",
-        marginLeft: 0.01 * screenWidth,
+
+    texto2: {
+      fontSize: 0.04 * screenWidth,
+      color: "#f381b2",
+      marginLeft: 0.01 * screenWidth,
     },
+
 });

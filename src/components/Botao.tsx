@@ -12,20 +12,20 @@ const Botao = (props: {titulo : string}) => {
 
     return (
         <>
-        <View style={styles.Container1}>
-            <Text style={styles.Texto2}>Consiga coisas com TODs</Text>
+        <View style={styles.container1}>
+            <Text style={styles.texto2}>Consiga coisas com TODs</Text>
         </View>
 
-        <View style={styles.Container1}>
-            <Text style={styles.Texto1}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nulla dolorum qui laborum ullam, na</Text>
+        <View style={styles.container1}>
+            <Text style={styles.texto1}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nulla dolorum qui laborum ullam, na</Text>
         </View>
 
-        <View style={styles.Container}>
+        <View style={styles.container}>
         <TouchableOpacity
-            style={styles.Botao}
+            style={styles.botao}
             onPress={() => executar(navigation)}
         >
-        <Text style={styles.Texto}>{props.titulo}</Text>
+        <Text style={styles.texto}>{props.titulo}</Text>
         </TouchableOpacity>
         </View>
         </>
@@ -35,42 +35,51 @@ const Botao = (props: {titulo : string}) => {
 export default Botao;
 
 const styles = StyleSheet.create({
-    Botao: {
-        width: 360,
-        height: 65,
-        padding: 12,
-        borderRadius: 10,
-        borderColor: "#F381b2",
-        backgroundColor: "#F381b2"
+
+    botao: {
+      width: 360,
+      height: 65,
+      padding: 12,
+      borderRadius: 10,
+      borderColor: "#F381b2",
+      backgroundColor: "#F381b2",
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
-    Container: {
-        padding: 10,
-        bottom: -390
+    texto: {
+      textAlign: 'center',
+      color: '#FFFFFF',
+      fontSize: 26,
     },
 
-    Container1: {
-        padding: 10,
-        bottom: -300
+    texto1: {
+      textAlign: 'center',
+      color: '#000000',
+      fontSize: 20,
+      padding: 10,
     },
 
-    Texto: {
-        textAlign: 'center',
-        color: '#FFFFFF',
-        fontSize: 26
+    texto2: {
+      textAlign: 'center',
+      fontSize: 30,
+      fontWeight: '900',
+      color: '#000000',
+      padding: 10,
     },
 
-    Texto1: {
-        textAlign: 'center',
-        color: '#000000',
-        fontSize: 20    
+    container: {
+      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      bottom: -390,
     },
 
-    Texto2: {
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: '900',
-        color: '#000000'
-    },
+    container1: {
+      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      bottom: -300,
 
+    },
 });

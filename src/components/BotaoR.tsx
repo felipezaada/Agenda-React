@@ -45,12 +45,12 @@ const BotaoR = (props: {titulo : string, dados: Tipo}) => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.Container}>
+        <View style={styles.container}>
         <TouchableOpacity
-            style={styles.Botao}
+            style={styles.botao}
             onPress={() => dadosPreenchidos(props.dados, navigation)}
          >
-        <Text style={styles.Texto}>{props.titulo}</Text>
+        <Text style={styles.texto}>{props.titulo}</Text>
         </TouchableOpacity>
         </View>
     )
@@ -58,26 +58,29 @@ const BotaoR = (props: {titulo : string, dados: Tipo}) => {
 
 export default BotaoR;
 
+
 const styles = StyleSheet.create({
-    Botao: {
-        width: 360,
-        height: 65,
-        padding: 12,
-        borderRadius: 10,
-        borderColor: "#F381b2",
-        backgroundColor: "#F381b2"
+    
+    botao: {
+      width: 360,
+      height: 65,
+      padding: 12,
+      borderRadius: 10,
+      borderColor: "#F381b2",
+      backgroundColor: "#F381b2",
+      alignItems: "center",
+      justifyContent: "center",
     },
 
-    Texto: {
-        textAlign: 'center',
-        color: '#FFFFFF',
-        fontSize: 26
+    texto: {
+      color: "#FFFFFF",
+      fontSize: 26,
     },
 
-    Container: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-    }
+    container: {
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 10,
+    },
 
 });
