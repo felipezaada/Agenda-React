@@ -1,7 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { Component } from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert} from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const getData = async (key: string) => {
     const resultado = await AsyncStorage.getItem(key);
@@ -25,10 +28,14 @@ const storeData = async (key: string, dados: Tipo) => {
 
 async function dadosPreenchidos (dados: Tipo, navigation: any) {
     if(dados.nome === '' ||  dados.email === '' || dados.senha === '' || dados.senha2 == ''){
-        console.warn('Há dados faltantes!');
+        Alert.alert('Aviso', 'Há dados faltantes!');
     }else{
+        if(dados.senha != dados.senha2){
+            Alert.alert('Aviso', 'Senhas nao coincidem!');
+        }else{
         await storeData('dados', dados);
         navigation.navigate('Login');
+        }
     }
 };
 
@@ -62,8 +69,8 @@ export default BotaoR;
 const styles = StyleSheet.create({
     
     botao: {
-      width: 360,
-      height: 65,
+      width: screenWidth * 0.9,
+      height: screenHeight * 0.08,
       padding: 12,
       borderRadius: 10,
       borderColor: "#F381b2",
@@ -74,7 +81,7 @@ const styles = StyleSheet.create({
 
     texto: {
       color: "#FFFFFF",
-      fontSize: 26,
+      fontSize: screenWidth * 0.06
     },
 
     container: {

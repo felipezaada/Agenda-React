@@ -1,9 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import React, { Component } from "react";
-import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert} from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const getData = async (key: string) => {
     const memoriaDados = await AsyncStorage.getItem(key);
@@ -12,7 +13,7 @@ const getData = async (key: string) => {
 
 async function dadosPreenchidos (dados : Tipo, navigation : any){
     if(dados.email === '' || dados.senha === ''){
-        console.warn('Há dados faltantes!');
+        Alert.alert('Aviso', 'Há dados faltantes!');
     }else{
         const dadosRegistro = await getData('dados');
         const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
@@ -20,7 +21,7 @@ async function dadosPreenchidos (dados : Tipo, navigation : any){
         if(existe){
             navigation.navigate('Home');
         }else{
-            console.warn('Email ou senha incorretos!');
+            Alert.alert('Aviso', 'Email ou senha incorretos!');
         }
     }
 };
@@ -52,8 +53,8 @@ export default BotaoL;
 const styles = StyleSheet.create({
 
     botao: {
-      width: 360,
-      height: 65,
+      width: 0.9 * screenWidth,
+      height: 0.08 * screenHeight,
       padding: 12,
       borderRadius: 10,
       borderColor: "#F381b2",
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     texto: {
       textAlign: 'center',
       color: '#FFFFFF',
-      fontSize: 26,
+      fontSize: screenWidth * 0.06
     },
 
     container: {

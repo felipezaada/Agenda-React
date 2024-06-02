@@ -1,5 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const Mensagem = () => {
   return (
@@ -20,7 +23,7 @@ const styles = StyleSheet.create({
 
   texto: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: screenWidth * 0.05,
     fontWeight: "900",
     color: "#000000",
   },
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   texto1: {
     textAlign: "center",
     color: "#000000",
-    fontSize: 16,
+    fontSize: screenWidth * 0.04,
   },
 
 });
