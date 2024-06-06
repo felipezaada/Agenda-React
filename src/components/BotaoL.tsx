@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { Component } from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert} from 'react-native';
 
@@ -16,10 +16,14 @@ async function dadosPreenchidos (dados : Tipo, navigation : any){
         Alert.alert('Aviso', 'Há dados faltantes!');
     }else{
         const dadosRegistro = await getData('dados');
-        const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
-        
-        if(existe){
-            navigation.navigate('Home');
+        if(dadosRegistro){
+            const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
+            if(existe){
+                const usuarioLog = dados.email;
+                navigation.navigate('Home', {minhastring: 'o tata é viado'});
+            }else{
+                Alert.alert('Aviso', 'Email ou senha incorretos!');
+            }
         }else{
             Alert.alert('Aviso', 'Email ou senha incorretos!');
         }
@@ -35,6 +39,7 @@ interface Tipo{
 const BotaoL = (props: {titulo : string, dados: Tipo}) => {
 
     const navigation = useNavigation();
+    const route = useRoute();
 
     return (
         <View style={styles.container}>

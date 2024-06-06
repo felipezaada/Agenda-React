@@ -159,7 +159,7 @@ const Clock: React.FC<ClockProps> = (props) => {
       position: 'absolute'
     },
     hourHand: {
-      width:clockSize/(clockSize/(coeficienteClockSize/30)),
+      width:clockSize/100,
       height: clockSize/5,
       backgroundColor: '#333333',
       borderRadius: clockSize,
