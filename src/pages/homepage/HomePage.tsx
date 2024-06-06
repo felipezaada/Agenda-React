@@ -8,17 +8,15 @@ const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 const storeData = async (key: string, estado: boolean) => {
-
     await AsyncStorage.setItem(key, JSON.stringify(estado));
-    const a = await getDados('estado');
-    console.log(a)
+    const estadoBotao = await getDados('estado');
+    console.log(estadoBotao);
 };
 
 const getDados = async (key: string) => {
     const resultado = await AsyncStorage.getItem(key);
     return resultado ? JSON.parse(resultado) : null;
 };
-
 
 const HomePage = () => {
     
@@ -27,12 +25,12 @@ const HomePage = () => {
     const [isPink3, setIsPink3] = useState(false);
     const [isPink4, setIsPink4] = useState(false);
 
-    useEffect(() => {
-        async function getInitialState() {
-            const caixa1 = await getDados(`caixa1`);
-            const caixa2 = await getDados(`caixa2`);
-            const caixa3 = await getDados(`caixa3`);
-            const caixa4 = await getDados(`caixa4`);
+        useEffect(() => {
+            async function getInitialState() {
+                const caixa1 = await getDados(`caixa1`);
+                const caixa2 = await getDados(`caixa2`);
+                const caixa3 = await getDados(`caixa3`);
+                const caixa4 = await getDados(`caixa4`);
 
             if (caixa1 !== null) {
                 setIsPink1(caixa1);
@@ -51,7 +49,7 @@ const HomePage = () => {
     }, []);
 
     // nem sabia disso ai pra cima, do useEffect, descobri num forum e fui na base no ctrl c + cltr v
-    
+        
     async function clique1() {
         setIsPink1(!isPink1);
         await storeData(`caixa1`, !isPink1);

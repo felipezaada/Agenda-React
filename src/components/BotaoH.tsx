@@ -6,7 +6,7 @@ const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 function executar(navigation : any){
-        navigation.navigate('Login');
+    navigation.navigate('Login');
 };
 
 const Botao = (props: {titulo : string}) => {
@@ -36,6 +36,7 @@ const Botao = (props: {titulo : string}) => {
 };
 
 export default Botao;
+
 
 const styles = StyleSheet.create({
 

@@ -15,6 +15,7 @@ const Mensagem = () => {
 
 export default Mensagem;
 
+
 const styles = StyleSheet.create({
 
   container: {

@@ -19,8 +19,7 @@ async function dadosPreenchidos (dados : Tipo, navigation : any){
         if(dadosRegistro){
             const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
             if(existe){
-                const usuarioLog = dados.email;
-                navigation.navigate('Home', {minhastring: 'o tata é viado'});
+                navigation.navigate('Home');
             }else{
                 Alert.alert('Aviso', 'Email ou senha incorretos!');
             }
@@ -35,11 +34,9 @@ interface Tipo{
     senha: string
 };
 
-
 const BotaoL = (props: {titulo : string, dados: Tipo}) => {
 
     const navigation = useNavigation();
-    const route = useRoute();
 
     return (
         <View style={styles.container}>
@@ -54,6 +51,7 @@ const BotaoL = (props: {titulo : string, dados: Tipo}) => {
 };
 
 export default BotaoL;
+
 
 const styles = StyleSheet.create({
 
