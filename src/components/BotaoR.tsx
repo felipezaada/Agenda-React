@@ -6,6 +6,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
+interface Tipo{
+    nome: string,
+    email: string,
+    senha: string,
+    senha2: string
+
+};
+
 const getData = async (key: string) => {
     const resultado = await AsyncStorage.getItem(key);
     return resultado ? JSON.parse(resultado) : [];
@@ -27,8 +35,14 @@ const storeData = async (key: string, dados: Tipo) => {
 };
 
 async function dadosPreenchidos (dados: Tipo, navigation: any) {
+
+    const emailExiste = await getData('dados')
+    const eExiste = emailExiste.find((item : Tipo) => item.email === dados.email);
+
     if(dados.nome === '' ||  dados.email === '' || dados.senha === '' || dados.senha2 == ''){
         Alert.alert('Aviso', 'Há dados faltantes!');
+    }else if(eExiste){
+        Alert.alert('Aviso', 'Conta já existe no banco de dados!!');
     }else{
         if(dados.senha != dados.senha2){
             Alert.alert('Aviso', 'Senhas nao coincidem!');
@@ -37,14 +51,6 @@ async function dadosPreenchidos (dados: Tipo, navigation: any) {
         navigation.navigate('Login');
         }
     }
-};
-
-interface Tipo{
-    nome: string,
-    email: string,
-    senha: string,
-    senha2: string
-
 };
 
 const BotaoR = (props: {titulo : string, dados: Tipo}) => {

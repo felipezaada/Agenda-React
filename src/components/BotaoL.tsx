@@ -19,6 +19,8 @@ async function dadosPreenchidos (dados : Tipo, navigation : any){
         if(dadosRegistro){
             const existe = dadosRegistro.find((item : Tipo) => item.email == dados.email && item.senha == dados.senha);
             if(existe){
+                const { email } = existe;
+                await AsyncStorage.setItem('email', JSON.stringify(email));
                 navigation.navigate('Home');
             }else{
                 Alert.alert('Aviso', 'Email ou senha incorretos!');

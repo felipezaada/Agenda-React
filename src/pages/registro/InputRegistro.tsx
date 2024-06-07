@@ -46,7 +46,7 @@ const InputRegistro = () => {
                     style={styles.box}
                     placeholder="Email"
                     placeholderTextColor={'#a9a9a9'}
-                    value={email}
+                    value={email.toLowerCase()}
                     onChangeText={setEmail}
                 />
 

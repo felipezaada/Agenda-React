@@ -7,10 +7,19 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
+interface Tipo{
+    email: string;
+}
+
 const storeData = async (key: string, estado: boolean) => {
     await AsyncStorage.setItem(key, JSON.stringify(estado));
     const estadoBotao = await getDados('estado');
     console.log(estadoBotao);
+};
+
+const getNomeS = async () => {
+    const resultado = await AsyncStorage.getItem('email');
+    return resultado ? resultado : null;
 };
 
 const getDados = async (key: string) => {
@@ -27,48 +36,64 @@ const HomePage = () => {
 
         useEffect(() => {
             async function getInitialState() {
-                const caixa1 = await getDados(`caixa1`);
-                const caixa2 = await getDados(`caixa2`);
-                const caixa3 = await getDados(`caixa3`);
-                const caixa4 = await getDados(`caixa4`);
+                const nomeS = await getNomeS();
+                if(nomeS){
+                const caixa1 = await getDados(`${nomeS}.caixa1`);
+                const caixa2 = await getDados(`${nomeS}.caixa2`);
+                const caixa3 = await getDados(`${nomeS}.caixa3`);
+                const caixa4 = await getDados(`${nomeS}.caixa4`);
 
-            if (caixa1 !== null) {
-                setIsPink1(caixa1);
-            }
-            if (caixa2 !== null) {
-                setIsPink2(caixa2);
-            }
-            if (caixa3 !== null) {
-                setIsPink3(caixa3);
-            }
-            if (caixa4 !== null) {
-                setIsPink4(caixa4);
+                if (caixa1 !== null) {
+                    setIsPink1(caixa1);
+                }
+                if (caixa2 !== null) {
+                    setIsPink2(caixa2);
+                }
+                if (caixa3 !== null) {
+                    setIsPink3(caixa3);
+                }
+                if (caixa4 !== null) {
+                    setIsPink4(caixa4);
+                }
             }
         }
         getInitialState();
     }, []);
 
     // nem sabia disso ai pra cima, do useEffect, descobri num forum e fui na base no ctrl c + cltr v
+    // ATUALIZAÇÃO, DEPOIS DE MUITO FUÇAR CONSEGUI PERSISTIR OS DADOS (MINHA LÓGICA, NÃO TAVA CONSEGUINDO USAR O ROUTES)
         
     async function clique1() {
         setIsPink1(!isPink1);
-        await storeData(`caixa1`, !isPink1);
+        const nomeS = await getNomeS();
+        if (nomeS) {
+            await storeData(`${nomeS}.caixa1`, !isPink1);
+        }
     }   
 
     async function clique2() {
         setIsPink2(!isPink2);
-        await storeData(`caixa2`, !isPink2);
-    }   
+        const nomeS = await getNomeS();
+        if (nomeS) {
+            await storeData(`${nomeS}.caixa2`, !isPink2);
+        }
+    }     
 
     async function clique3() {
         setIsPink3(!isPink3);
-        await storeData(`caixa3`, !isPink3);
+        const nomeS = await getNomeS();
+        if (nomeS) {
+            await storeData(`${nomeS}.caixa3`, !isPink3);
+        }
     }    
 
     async function clique4() {
         setIsPink4(!isPink4);
-        await storeData(`caixa4`, !isPink4);
-    }  
+        const nomeS = await getNomeS();
+        if (nomeS) {
+            await storeData(`${nomeS}.caixa4`, !isPink4);
+        }
+    }   
 
     return (
         <View style={styles.container}>
