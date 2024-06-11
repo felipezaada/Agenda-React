@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, Image, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import BotaoL from "../../components/BotaoL";
-import BotaoPequeno from "../../components/BotaoPequeno";
+import BotaoPequeno from "../../components/BotaoP";
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;

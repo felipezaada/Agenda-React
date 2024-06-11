@@ -19,7 +19,7 @@ export default Mensagem;
 const styles = StyleSheet.create({
 
   container: {
-    padding: 60,
+    padding: screenHeight * 0.07,
   },
 
   texto: {

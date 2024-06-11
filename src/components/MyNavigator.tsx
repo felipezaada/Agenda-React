@@ -15,7 +15,7 @@ const MyNavigator: React.FC = () => {
       <Stack.Screen name="Login" component={InputLogin} />
       <Stack.Screen name="Registro" component={InputRegistro} />
       <Stack.Screen name="Home" component={HomePage} />
-    </Stack.Navigator>  
+    </Stack.Navigator>
   );
 };
 

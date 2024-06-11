@@ -2,46 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Mensagem from "../../components/Mensagem";
 import Clock from "../../components/Clock";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Database from "../../components/Database";
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
-interface Tipo{
-    email: string;
-}
-
-const storeData = async (key: string, estado: boolean) => {
-    await AsyncStorage.setItem(key, JSON.stringify(estado));
-    const estadoBotao = await getDados('estado');
-    console.log(estadoBotao);
-};
-
-const getNomeS = async () => {
-    const resultado = await AsyncStorage.getItem('email');
-    return resultado ? resultado : null;
-};
-
-const getDados = async (key: string) => {
-    const resultado = await AsyncStorage.getItem(key);
-    return resultado ? JSON.parse(resultado) : null;
-};
-
 const HomePage = () => {
-    
+
     const [isPink1, setIsPink1] = useState(false);
     const [isPink2, setIsPink2] = useState(false);
     const [isPink3, setIsPink3] = useState(false);
     const [isPink4, setIsPink4] = useState(false);
 
-        useEffect(() => {
-            async function getInitialState() {
-                const nomeS = await getNomeS();
-                if(nomeS){
-                const caixa1 = await getDados(`${nomeS}.caixa1`);
-                const caixa2 = await getDados(`${nomeS}.caixa2`);
-                const caixa3 = await getDados(`${nomeS}.caixa3`);
-                const caixa4 = await getDados(`${nomeS}.caixa4`);
+    useEffect(() => {
+        async function getInitialState() {
+            const nomeS = await await Database.getData('email');
+            if (nomeS) {
+                const caixa1 = await Database.getData(`${nomeS}.caixa1`);
+                const caixa2 = await Database.getData(`${nomeS}.caixa2`);
+                const caixa3 = await Database.getData(`${nomeS}.caixa3`);
+                const caixa4 = await Database.getData(`${nomeS}.caixa4`);
 
                 if (caixa1 !== null) {
                     setIsPink1(caixa1);
@@ -62,43 +42,45 @@ const HomePage = () => {
 
     // nem sabia disso ai pra cima, do useEffect, descobri num forum e fui na base no ctrl c + cltr v
     // ATUALIZAÇÃO, DEPOIS DE MUITO FUÇAR CONSEGUI PERSISTIR OS DADOS (MINHA LÓGICA, NÃO TAVA CONSEGUINDO USAR O ROUTES)
-        
+
     async function clique1() {
         setIsPink1(!isPink1);
-        const nomeS = await getNomeS();
+        const nomeS = await Database.getData('email');
         if (nomeS) {
-            await storeData(`${nomeS}.caixa1`, !isPink1);
+            await Database.storeDataB(`${nomeS}.caixa1`, !isPink1);
         }
-    }   
+    }
 
     async function clique2() {
         setIsPink2(!isPink2);
-        const nomeS = await getNomeS();
+        const nomeS = await Database.getData('email');
         if (nomeS) {
-            await storeData(`${nomeS}.caixa2`, !isPink2);
+            await Database.storeDataB(`${nomeS}.caixa2`, !isPink2);
         }
-    }     
+    }
 
     async function clique3() {
         setIsPink3(!isPink3);
-        const nomeS = await getNomeS();
+        const nomeS = await Database.getData('email');
         if (nomeS) {
-            await storeData(`${nomeS}.caixa3`, !isPink3);
+            await Database.storeDataB(`${nomeS}.caixa3`, !isPink3);
         }
-    }    
+    }
 
     async function clique4() {
         setIsPink4(!isPink4);
-        const nomeS = await getNomeS();
+        const nomeS = await Database.getData('email');
         if (nomeS) {
-            await storeData(`${nomeS}.caixa4`, !isPink4);
+            await Database.storeDataB(`${nomeS}.caixa4`, !isPink4);
         }
-    }   
+    }
 
     return (
         <View style={styles.container}>
             <Mensagem></Mensagem>
-            <Clock x={0} y={430}></Clock>
+            <View style={styles.clock}>
+                <Clock x={0} y={screenHeight * 0.535} />
+            </View>
             <View style={styles.square}>
                 <View style={styles.squareContainer}>
                     <View style={styles.caixinhaContainer}>
@@ -143,6 +125,10 @@ const styles = StyleSheet.create({
         bottom: screenHeight * -0.30,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+
+    clock: {
+        margin: 10,
     },
 
     square: {

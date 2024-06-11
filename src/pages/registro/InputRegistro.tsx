@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import BotaoR from "../../components/BotaoR";
-import BotaoPequeno from "../../components/BotaoPequeno";
+import BotaoPequeno from "../../components/BotaoP";
 import Mensagem from "../../components/Mensagem";
 
 const screenWidth = Dimensions.get('window').width;
