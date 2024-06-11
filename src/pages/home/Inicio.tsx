@@ -19,7 +19,6 @@ export default Inicio;
 const styles = StyleSheet.create({
 
     container: {
-        bottom: screenHeight * 0.2,
         alignItems: 'center',
         justifyContent: 'center'
     }

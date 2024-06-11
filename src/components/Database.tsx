@@ -14,7 +14,7 @@ async function storeDataB(key: string, estado: boolean) {
     await AsyncStorage.setItem(key, JSON.stringify(estado));
 };
 
-async function storeDataL(key:string, email: string) {
+async function storeDataL(key: string, email: string) {
     await AsyncStorage.setItem(key, JSON.stringify(email));
 };
 
@@ -24,9 +24,9 @@ async function storeDataR(key: string, dados: TipoR) {
         dadosExistem.push(dados);
         await AsyncStorage.setItem(key, JSON.stringify(dadosExistem));
     } else {
-        await AsyncStorage.setItem(key, JSON.stringify([dados])); // Transformar dados em array
+        await AsyncStorage.setItem(key, JSON.stringify([dados]));
     }
     console.log(await getData('dados'));
 };
 
-export default { getData, getDataR , storeDataB, storeDataL, storeDataR };
+export default { getData, getDataR, storeDataB, storeDataL, storeDataR };

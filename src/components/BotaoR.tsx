@@ -17,7 +17,7 @@ async function dadosPreenchidos(dados: TipoR, navigation: any) {
         Alert.alert('Aviso', 'Conta já existe no banco de dados!');
     } else {
         if (dados.senha != dados.senha2) {
-            Alert.alert('Aviso', 'Senhas nao coincidem!');
+            Alert.alert('Aviso', 'As senhas não coincidem!');
         } else {
             await Database.storeDataR('dados', dados);
             navigation.navigate('Login');
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     botao: {
         width: screenWidth * 0.9,
         height: screenHeight * 0.08,
-        padding: 12,
+        padding: 10,
         borderRadius: 10,
         borderColor: "#F381b2",
         backgroundColor: "#F381b2",

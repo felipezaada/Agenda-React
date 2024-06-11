@@ -1,5 +1,5 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { Component } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert } from 'react-native';
 import Database from "./Database";
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     botao: {
         width: 0.9 * screenWidth,
         height: 0.08 * screenHeight,
-        padding: 12,
+        padding: 10,
         borderRadius: 10,
         borderColor: "#F381b2",
         backgroundColor: "#F381b2",

@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { Component } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
@@ -16,11 +16,8 @@ const BotaoH = (props: { titulo: string }) => {
   return (
     <>
       <View style={styles.container1}>
-        <Text style={styles.texto2}>Se organize com a Kitty!</Text>
-      </View>
-
-      <View style={styles.container1}>
-        <Text style={styles.texto1}>O aplicativo Agenda Hello Kitty é perfeito para organizar seus compromissos de forma fofa e divertida. Com ele, você pode agendar eventos, criar lembretes e nunca mais esquecer um compromisso importante!</Text>
+        <Text style={styles.textoG}>Se organize com a Kitty!</Text>
+        <Text style={styles.textoM}>O aplicativo Agenda Hello Kitty é perfeito para organizar seus compromissos de forma fofa e divertida. Com ele, você pode agendar eventos, criar lembretes e nunca mais esquecer um compromisso importante!</Text>
       </View>
 
       <View style={styles.container}>
@@ -57,30 +54,30 @@ const styles = StyleSheet.create({
     fontSize: screenWidth * 0.06,
   },
 
-  texto1: {
+  textoG: {
+    textAlign: 'center',
+    fontWeight: '900',
+    color: '#000000',
+    padding: 10,
+    fontSize: screenWidth * 0.07,
+  },
+
+  textoM: {
     textAlign: 'justify',
     color: '#000000',
     fontSize: screenWidth * 0.05,
     padding: 10,
   },
 
-  texto2: {
-    textAlign: 'center',
-    fontWeight: '900',
-    color: '#000000',
-    fontSize: screenWidth * 0.07,
-  },
-
   container: {
-    bottom: screenHeight * -0.50,
+    bottom: screenHeight * -0.3,
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   container1: {
-    width: screenWidth * 0.85,
-    bottom: screenHeight * -0.40,
-    padding: 10,
+    bottom: screenHeight * -0.2,
+    paddingHorizontal: 35,
     textAlign: 'justify'
   },
 });
