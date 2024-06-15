@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Text, TouchableOpacity, View } from "react-native";
 import Mensagem from "../../components/Mensagem";
 import Clock from "../../components/Clock";
 import Database from "../../components/Database";
+import Styles from "../../components/Styles";
 
-const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 const HomePage = () => {
@@ -76,40 +76,40 @@ const HomePage = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={Styles.HomePageContainer}>
             <Mensagem></Mensagem>
-            <View style={styles.clock}>
-                <Clock x={0} y={screenHeight * 0.535} />
+            <View>
+                <Clock x={0} y={screenHeight * 0.41} />
             </View>
-            <View style={styles.square}>
-                <View style={styles.squareContainer}>
-                    <View style={styles.caixinhaContainer}>
+            <View style={Styles.Box}>
+                <View style={Styles.BoxContainer}>
+                    <View style={Styles.PequenaBoxContainer}>
                         <TouchableOpacity
-                            style={[styles.caixinha, isPink1 && styles.caixinhaRosa]}
+                            style={[Styles.PequenaBox, isPink1 && Styles.BoxPink]}
                             onPress={clique1}
                         />
-                        <Text style={styles.texto}>Limpar a casa</Text>
+                        <Text style={Styles.TextoHomePage}>Limpar a casa</Text>
                     </View>
-                    <View style={styles.caixinhaContainer}>
+                    <View style={Styles.PequenaBoxContainer}>
                         <TouchableOpacity
-                            style={[styles.caixinha, isPink2 && styles.caixinhaRosa]}
+                            style={[Styles.PequenaBox, isPink2 && Styles.BoxPink]}
                             onPress={clique2}
                         />
-                        <Text style={styles.texto}>Lavar a roupa</Text>
+                        <Text style={Styles.TextoHomePage}>Lavar a roupa</Text>
                     </View>
-                    <View style={styles.caixinhaContainer}>
+                    <View style={Styles.PequenaBoxContainer}>
                         <TouchableOpacity
-                            style={[styles.caixinha, isPink3 && styles.caixinhaRosa]}
+                            style={[Styles.PequenaBox, isPink3 && Styles.BoxPink]}
                             onPress={clique3}
                         />
-                        <Text style={styles.texto}>Organizar a dispensa</Text>
+                        <Text style={Styles.TextoHomePage}>Organizar a dispensa</Text>
                     </View>
-                    <View style={styles.caixinhaContainer}>
+                    <View style={Styles.PequenaBoxContainer}>
                         <TouchableOpacity
-                            style={[styles.caixinha, isPink4 && styles.caixinhaRosa]}
+                            style={[Styles.PequenaBox, isPink4 && Styles.BoxPink]}
                             onPress={clique4}
                         />
-                        <Text style={styles.texto}>Regar as plantas</Text>
+                        <Text style={Styles.TextoHomePage}>Regar as plantas</Text>
                     </View>
                 </View>
             </View>
@@ -118,56 +118,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-const styles = StyleSheet.create({
-
-    container: {
-        bottom: screenHeight * -0.30,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    clock: {
-        margin: 10,
-    },
-
-    square: {
-        bottom: screenHeight * 1,
-        width: screenWidth * 0.9,
-        height: screenHeight * 0.42,
-        borderWidth: 2,
-        borderColor: 'black',
-    },
-
-    squareContainer: {
-        position: 'absolute',
-        left: 0,
-        bottom: screenHeight * 0.01,
-        alignItems: 'flex-start',
-    },
-
-    caixinhaContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginVertical: 15,
-    },
-
-    caixinha: {
-        width: screenWidth * 0.115,
-        height: screenHeight * 0.06,
-        marginHorizontal: 15,
-        borderWidth: 2,
-        borderColor: 'black',
-    },
-
-    caixinhaRosa: {
-        backgroundColor: '#F381b2'
-    },
-
-    texto: {
-        fontSize: screenWidth * 0.05,
-        color: 'black',
-        marginLeft: 10
-    }
-
-});

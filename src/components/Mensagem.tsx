@@ -6,7 +6,7 @@ const screenHeight = Dimensions.get('window').height;
 
 const Mensagem = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.texto}>Bem-vindo ao Onboard!</Text>
       <Text style={styles.texto1}>Vamos ajudar a cumprir suas tarefas!</Text>
     </View>
@@ -17,10 +17,6 @@ export default Mensagem;
 
 
 const styles = StyleSheet.create({
-
-  container: {
-    padding: screenHeight * 0.07,
-  },
 
   texto: {
     textAlign: "center",

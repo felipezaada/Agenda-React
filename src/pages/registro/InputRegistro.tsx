@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Dimensions, ScrollView, Text, TextInput, View } from "react-native";
 import BotaoR from "../../components/BotaoR";
 import BotaoPequeno from "../../components/BotaoP";
 import Mensagem from "../../components/Mensagem";
+import Styles from "../../components/Styles";
 
 const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
 
 const InputRegistro = () => {
 
@@ -24,44 +24,46 @@ const InputRegistro = () => {
     return (
 
         <ScrollView
-            contentContainerStyle={styles.scrollContainer}
+            contentContainerStyle={Styles.ScrollContainer}
             persistentScrollbar={false}
         >
 
-            <View style={styles.container}>
-
+            <View style={Styles.ContainerMensagem}>
                 <Mensagem />
+            </View>
 
-                <Text style={styles.texto}>Digite seu nome completo</Text>
+            <View style={Styles.ContainerLabelR}>
+
+                <Text style={Styles.TextoLabel}>Digite seu nome completo</Text>
                 <TextInput
-                    style={styles.box}
+                    style={Styles.Label}
                     placeholder="Nome"
                     placeholderTextColor={'#a9a9a9'}
                     value={nome}
                     onChangeText={setNome}
                 />
 
-                <Text style={styles.texto}>Digite seu email</Text>
+                <Text style={Styles.TextoLabel}>Digite seu email</Text>
                 <TextInput
-                    style={styles.box}
+                    style={Styles.Label}
                     placeholder="Email"
                     placeholderTextColor={'#a9a9a9'}
                     value={email.toLowerCase()}
                     onChangeText={setEmail}
                 />
 
-                <Text style={styles.texto}>Digite sua senha</Text>
+                <Text style={Styles.TextoLabel}>Digite sua senha</Text>
                 <TextInput
-                    style={styles.box}
+                    style={Styles.Label}
                     placeholder="Senha"
                     placeholderTextColor={'#a9a9a9'}
                     value={senha}
                     onChangeText={setSenha}
                 />
 
-                <Text style={styles.texto}>Confirme sua senha</Text>
+                <Text style={Styles.TextoLabel}>Confirme sua senha</Text>
                 <TextInput
-                    style={styles.box}
+                    style={Styles.Label}
                     placeholder="Confirmar senha"
                     placeholderTextColor={'#a9a9a9'}
                     value={senha2}
@@ -70,12 +72,13 @@ const InputRegistro = () => {
 
             </View>
 
-            <View style={{ height: screenWidth * 0.08 }} />
+            <View style={{ height: screenWidth * 0.6 }} />
 
-            <View style={styles.containerBotao}>
-                <BotaoR titulo={"Registrar"} dados={dados}></BotaoR>
-                <BotaoPequeno texto="Já possui uma conta?" texto2="Sign-in" />
+            <View style={Styles.ContainerBotao}>
+                <BotaoR titulo="Registrar" dados={dados}></BotaoR>
+                <BotaoPequeno texto="Já possui uma conta?" texto2={"Sign-in"} />
             </View>
+
 
         </ScrollView>
 
@@ -84,42 +87,4 @@ const InputRegistro = () => {
 
 export default InputRegistro;
 
-const styles = StyleSheet.create({
 
-    scrollContainer: {
-        flexGrow: 1
-    },
-
-    box: {
-        bottom: screenHeight * 0.035,
-        width: screenWidth * 0.85,
-        height: screenHeight * 0.067,
-        margin: 7,
-        padding: 15,
-        borderRadius: 15,
-        borderWidth: 2,
-        borderColor: '#222',
-        fontSize: screenWidth * 0.042,
-        alignSelf: 'center',
-        color: '#000000'
-    },
-
-    texto: {
-        fontSize: screenWidth * 0.05,
-        bottom: screenHeight * 0.035,
-        right: screenWidth * -0.08,
-        color: '#000000'
-    },
-
-    container: {
-        flex: 1,
-        bottom: screenHeight * 0.02,
-    },
-
-    containerBotao: {
-        bottom: screenHeight * 0.03,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-});

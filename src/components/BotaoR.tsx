@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import Database from "./Database";
-
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+import Styles from "./Styles";
 
 async function dadosPreenchidos(dados: TipoR, navigation: any) {
 
@@ -30,42 +28,15 @@ const BotaoR = (props: { titulo: string, dados: TipoR }) => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
+        <View style={Styles.PaddingBotao}>
             <TouchableOpacity
-                style={styles.botao}
+                style={Styles.Botao}
                 onPress={() => dadosPreenchidos(props.dados, navigation)}
             >
-                <Text style={styles.texto}>{props.titulo}</Text>
+                <Text style={Styles.TextoBotao}>{props.titulo}</Text>
             </TouchableOpacity>
         </View>
     )
 };
 
 export default BotaoR;
-
-
-const styles = StyleSheet.create({
-
-    botao: {
-        width: screenWidth * 0.9,
-        height: screenHeight * 0.08,
-        padding: 10,
-        borderRadius: 10,
-        borderColor: "#F381b2",
-        backgroundColor: "#F381b2",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-
-    texto: {
-        color: "#FFFFFF",
-        fontSize: screenWidth * 0.06
-    },
-
-    container: {
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 10,
-    },
-
-});
